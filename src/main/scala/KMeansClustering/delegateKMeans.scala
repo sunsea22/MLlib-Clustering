@@ -5,15 +5,11 @@ import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.rdd.RDD
 
 /**
- * Created by Flyln on 16/1/7.
+ * Created by Flyln on 16/1/7
  */
 class delegateKMeans {
 
-  /**
-   *
-   * @param rdd
-   * @return
-   */
+
   def kmeansDemo(rdd: RDD[String]):RDD[String] = {
     val parsedTrainingData = rdd.map(s => Vectors.dense(s.split(",").map(_.toDouble))).cache()
 
@@ -44,11 +40,10 @@ class delegateKMeans {
 
   /**
    * 计算K消耗值，确定聚类个数
-   * @param rdd
    */
   def kValueCost(rdd: RDD[String]) = {
     val parsedTrainingData = rdd.map(s => Vectors.dense(s.split(",").map(_.toDouble))).cache()
-    val ks:Array[Int] = Array(2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
+    val ks:Array[Int] = (2 to 20).toArray
     val a = ks.map(cluster => {
       val model:KMeansModel = KMeans.train(parsedTrainingData,cluster,30,5)
       val ssd = model.computeCost(parsedTrainingData)
