@@ -6,6 +6,7 @@ import org.apache.spark.rdd.RDD
 
 /**
  * Created by Flyln on 16/1/6.
+ * gmm是一个概率密度模型，给出数据点被assign到每个cluster的概率
  */
 object myGMMModel {
 

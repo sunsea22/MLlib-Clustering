@@ -14,7 +14,7 @@ class delegateKMeans {
     val parsedTrainingData = rdd.map(s => Vectors.dense(s.split(",").map(_.toDouble))).cache()
 
     var clusterIndex:Int = 0 //类ID
-    val numClusters = 0 //需要聚的类的个数
+    val numClusters = 2 //需要聚的类的个数
     val numIterations = 30 //方法单次运行最大的迭代次数
     val numRuns = 5 //算法被运行的次数
 
