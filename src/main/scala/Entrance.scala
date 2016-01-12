@@ -14,9 +14,9 @@ object Entrance {
 
     //val clusterResult = GMM.myGMMModel.gmmModel(data)
 
-    //new delegateKMeans().kValueCost(data)
-    //val clusterResult = new delegateKMeans().kmeansDemo(data)
-    //BiseKMeans.entrance.biKMeansClustering(data)
+    //new delegateKMeans().kValueCost(data)  //GMM模型
+    //val clusterResult = new delegateKMeans().kmeansDemo(data)  //KMeans
+    //BiseKMeans.entrance.biKMeansClustering(data).repartition(1).saveAsTextFile("")//二分K均值
     //clusterResult.repartition(1).saveAsTextFile("")
 
 
