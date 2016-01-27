@@ -12,12 +12,19 @@ object Entrance {
 
     val data = sc.textFile("")
 
-    //val clusterResult = GMM.myGMMModel.gmmModel(data)
+    //K-means
+    new delegateKMeans().kValueCost(data)
+    new delegateKMeans().kmeansDemo(data)
 
-    //new delegateKMeans().kValueCost(data)  //GMM模型
-    //val clusterResult = new delegateKMeans().kmeansDemo(data)  //KMeans
-    //BiseKMeans.entrance.biKMeansClustering(data).repartition(1).saveAsTextFile("")//二分K均值
-    //clusterResult.repartition(1).saveAsTextFile("")
+    //二分k-means
+    BiseKMeans.entrance.kValueCost(data)
+    BiseKMeans.entrance.biKMeansClustering(data)
+
+    //GMM
+    GMM.myGMMModel.gmmModel(data)
+
+    //PIC
+    PIC.PiClustering.powerCluster(data)
 
 
   }
